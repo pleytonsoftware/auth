@@ -7,6 +7,11 @@
   "scripts": {
     "dev": "bun run --watch src/index.ts",
     "start": "bun run src/index.ts",
+    "test": "bun test",
+    "test:unit": "bun test tests/unit",
+    "test:integration": "bun test tests/integration",
+    "test:e2e": "bun test tests/e2e",
+    "test:coverage": "bun test --coverage",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "bun run src/infrastructure/database/migrate.ts",
     "db:push": "drizzle-kit push"
@@ -33,6 +38,7 @@
     "@types/bun": "^1.1.13",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/bcrypt": "^5.0.2",
-    "drizzle-kit": "^0.24.0"
+    "drizzle-kit": "^0.24.0",
+    "@faker-js/faker": "^9.2.0"
   }
 }
