@@ -1,14 +1,14 @@
-import { RegisterUser } from '../../../application/use-cases/RegisterUser';
-import { LoginUser } from '../../../application/use-cases/LoginUser';
-import { OAuthLogin } from '../../../application/use-cases/OAuthLogin';
-import { RefreshToken } from '../../../application/use-cases/RefreshToken';
-import { IUserRepository } from '../../../domain/repositories/IUserRepository';
+import { RegisterUser } from '../../../application/use-cases/register-user';
+import { LoginUser } from '../../../application/use-cases/login-user';
+import { OAuthLogin } from '../../../application/use-cases/oauth-login';
+import { RefreshToken } from '../../../application/use-cases/refresh-token';
+import { IUserRepository } from '../../../domain/repositories/user-repository.interface';
 import {
   RegisterUserDtoSchema,
   LoginUserDtoSchema,
   OAuthLoginDtoSchema,
   RefreshTokenDtoSchema,
-} from '../../../application/dto/AuthDto';
+} from '../../../application/dto/auth.dto';
 import { AuthRequest } from '../middlewares/auth.middleware';
 
 export class AuthController {

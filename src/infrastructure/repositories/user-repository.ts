@@ -1,6 +1,6 @@
 import { eq } from 'drizzle-orm';
-import { User } from '../../domain/entities/User';
-import { IUserRepository } from '../../domain/repositories/IUserRepository';
+import { User } from '../../domain/entities/user';
+import { IUserRepository } from '../../domain/repositories/user-repository.interface';
 import { Database } from '../database/connection';
 import { users, UserSchema } from '../database/schema';
 

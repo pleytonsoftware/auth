@@ -1,4 +1,4 @@
-import { OAuthAccount } from '../entities/OAuthAccount';
+import { OAuthAccount } from '../entities/oauth-account';
 
 export interface IOAuthAccountRepository {
   create(account: OAuthAccount): Promise<OAuthAccount>;

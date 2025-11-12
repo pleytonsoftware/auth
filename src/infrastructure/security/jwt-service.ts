@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { IAuthService } from '../../domain/services/IAuthService';
+import { IAuthService } from '../../domain/services/auth-service.interface';
 
 export class JwtService implements IAuthService {
   private jwtSecret: string;

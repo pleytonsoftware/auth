@@ -1,8 +1,8 @@
 import { ulid } from 'ulidx';
-import { User } from '../../domain/entities/User';
-import { IUserRepository } from '../../domain/repositories/IUserRepository';
-import { IAuthService } from '../../domain/services/IAuthService';
-import { RegisterUserDto, AuthResponseDto, UserResponseDto } from '../dto/AuthDto';
+import { User } from '../../domain/entities/user';
+import { IUserRepository } from '../../domain/repositories/user-repository.interface';
+import { IAuthService } from '../../domain/services/auth-service.interface';
+import { RegisterUserDto, AuthResponseDto, UserResponseDto } from '../dto/auth.dto';
 
 export class RegisterUser {
   constructor(

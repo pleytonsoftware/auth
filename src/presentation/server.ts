@@ -1,13 +1,13 @@
 import { db } from '../infrastructure/database/connection';
-import { UserRepository } from '../infrastructure/repositories/UserRepository';
-import { OAuthAccountRepository } from '../infrastructure/repositories/OAuthAccountRepository';
-import { JwtService } from '../infrastructure/security/JwtService';
-import { PasswordHasher } from '../infrastructure/security/PasswordHasher';
-import { RegisterUser } from '../application/use-cases/RegisterUser';
-import { LoginUser } from '../application/use-cases/LoginUser';
-import { OAuthLogin } from '../application/use-cases/OAuthLogin';
-import { RefreshToken } from '../application/use-cases/RefreshToken';
-import { AuthController } from './http/controllers/AuthController';
+import { UserRepository } from '../infrastructure/repositories/user-repository';
+import { OAuthAccountRepository } from '../infrastructure/repositories/oauth-account-repository';
+import { JwtService } from '../infrastructure/security/jwt-service';
+import { PasswordHasher } from '../infrastructure/security/password-hasher';
+import { RegisterUser } from '../application/use-cases/register-user';
+import { LoginUser } from '../application/use-cases/login-user';
+import { OAuthLogin } from '../application/use-cases/oauth-login';
+import { RefreshToken } from '../application/use-cases/refresh-token';
+import { AuthController } from './http/controllers/auth-controller';
 import { createAuthRoutes } from './http/routes/auth.routes';
 
 export function createServer() {

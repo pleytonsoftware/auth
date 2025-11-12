@@ -1,10 +1,10 @@
 import { ulid } from 'ulidx';
-import { User } from '../../domain/entities/User';
-import { OAuthAccount } from '../../domain/entities/OAuthAccount';
-import { IUserRepository } from '../../domain/repositories/IUserRepository';
-import { IOAuthAccountRepository } from '../../domain/repositories/IOAuthAccountRepository';
-import { IAuthService } from '../../domain/services/IAuthService';
-import { OAuthLoginDto, AuthResponseDto, UserResponseDto } from '../dto/AuthDto';
+import { User } from '../../domain/entities/user';
+import { OAuthAccount } from '../../domain/entities/oauth-account';
+import { IUserRepository } from '../../domain/repositories/user-repository.interface';
+import { IOAuthAccountRepository } from '../../domain/repositories/oauth-account-repository.interface';
+import { IAuthService } from '../../domain/services/auth-service.interface';
+import { OAuthLoginDto, AuthResponseDto, UserResponseDto } from '../dto/auth.dto';
 
 export class OAuthLogin {
   constructor(

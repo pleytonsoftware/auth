@@ -1,5 +1,5 @@
-import { AuthController } from '../controllers/AuthController';
-import { IAuthService } from '../../../domain/services/IAuthService';
+import { AuthController } from '../controllers/auth-controller';
+import { IAuthService } from '../../../domain/services/auth-service.interface';
 import { authMiddleware, AuthRequest } from '../middlewares/auth.middleware';
 
 export function createAuthRoutes(

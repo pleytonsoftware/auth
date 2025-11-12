@@ -1,6 +1,6 @@
 import { eq, and } from 'drizzle-orm';
-import { OAuthAccount } from '../../domain/entities/OAuthAccount';
-import { IOAuthAccountRepository } from '../../domain/repositories/IOAuthAccountRepository';
+import { OAuthAccount } from '../../domain/entities/oauth-account';
+import { IOAuthAccountRepository } from '../../domain/repositories/oauth-account-repository.interface';
 import { Database } from '../database/connection';
 import { oauthAccounts, OAuthAccountSchema } from '../database/schema';
 

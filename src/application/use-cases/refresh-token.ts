@@ -1,7 +1,7 @@
-import { IUserRepository } from '../../domain/repositories/IUserRepository';
-import { IAuthService } from '../../domain/services/IAuthService';
-import { RefreshTokenDto, AuthResponseDto, UserResponseDto } from '../dto/AuthDto';
-import { User } from '../../domain/entities/User';
+import { IUserRepository } from '../../domain/repositories/user-repository.interface';
+import { IAuthService } from '../../domain/services/auth-service.interface';
+import { RefreshTokenDto, AuthResponseDto, UserResponseDto } from '../dto/auth.dto';
+import { User } from '../../domain/entities/user';
 
 export class RefreshToken {
   constructor(
