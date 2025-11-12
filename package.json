@@ -1,0 +1,45 @@
+{
+  "name": "@pleytonsoftware/auth",
+  "version": "1.0.0",
+  "description": "Bun-based authentication microservice with hexagonal architecture",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "test": "bun test",
+    "test:unit": "bun test tests/unit",
+    "test:integration": "bun test tests/integration",
+    "test:e2e": "bun test tests/e2e",
+    "test:coverage": "bun test --coverage",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "bun run src/infrastructure/database/migrate.ts",
+    "db:push": "drizzle-kit push"
+  },
+  "keywords": [
+    "auth",
+    "authentication",
+    "oauth",
+    "jwt",
+    "bun",
+    "hexagonal-architecture"
+  ],
+  "author": "Pleyton Software",
+  "license": "MIT",
+  "dependencies": {
+    "drizzle-orm": "^0.33.0",
+    "postgres": "^3.4.4",
+    "ulidx": "^2.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "bcrypt": "^5.1.1",
+    "zod": "^3.23.8",
+    "swagger-ui-dist": "^5.18.2"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.13",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/bcrypt": "^5.0.2",
+    "drizzle-kit": "^0.24.0",
+    "@faker-js/faker": "^9.2.0"
+  }
+}
