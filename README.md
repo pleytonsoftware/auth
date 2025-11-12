@@ -94,7 +94,100 @@ bun run dev
 
 The server will start on `http://localhost:3000`
 
+### 🐳 Docker Setup (Recommended)
+
+The easiest way to run the application is with Docker Compose:
+
+1. Clone the repository and navigate to the directory:
+```bash
+git clone https://github.com/pleytonsoftware/auth.git
+cd auth
+```
+
+2. Create `.env` file from example:
+```bash
+cp .env.example .env
+```
+
+3. Update the `.env` file with your JWT secrets (required):
+```env
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+JWT_REFRESH_SECRET=your-super-secret-refresh-key-change-this-in-production
+```
+
+4. Start all services with Docker Compose:
+```bash
+docker-compose up -d
+```
+
+This will start:
+- PostgreSQL database on port 5432
+- Auth service on port 3000
+
+5. Run database migrations:
+```bash
+docker-compose exec auth bun run db:generate
+docker-compose exec auth bun run db:migrate
+```
+
+6. View logs:
+```bash
+docker-compose logs -f auth
+```
+
+7. Stop all services:
+```bash
+docker-compose down
+```
+
+#### Docker Commands
+
+```bash
+# Build and start services
+docker-compose up --build
+
+# Start in background
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop services
+docker-compose down
+
+# Stop and remove volumes (clears database)
+docker-compose down -v
+
+# Rebuild a specific service
+docker-compose build auth
+
+# Run tests in container
+docker-compose exec auth bun test
+```
+
 ## 📚 API Documentation
+
+### Interactive API Documentation (Swagger UI)
+
+Once the server is running, visit:
+```
+http://localhost:3000/api-docs
+```
+
+This provides an interactive Swagger UI where you can:
+- Browse all API endpoints
+- View request/response schemas
+- Test endpoints directly from the browser
+- See examples for each endpoint
+
+### OpenAPI Specification
+
+The OpenAPI 3.0 specification is available at:
+```
+http://localhost:3000/openapi.json
+```
+
+You can import this into tools like Postman, Insomnia, or any OpenAPI-compatible client.
 
 ### Base URL
 ```
@@ -361,13 +454,54 @@ bun run db:push
 
 - `bun run dev` - Start development server with hot reload
 - `bun run start` - Start production server
+- `bun run test` - Run all tests
+- `bun run test:unit` - Run unit tests only
+- `bun run test:integration` - Run integration tests only
+- `bun run test:e2e` - Run end-to-end tests only
+- `bun run test:coverage` - Run tests with coverage report
 - `bun run db:generate` - Generate database migrations
 - `bun run db:migrate` - Run database migrations
 - `bun run db:push` - Push schema changes to database
 
 ## 🧪 Testing
 
-To test the API, you can use curl, Postman, or any HTTP client:
+This project includes comprehensive test coverage with unit, integration, and e2e tests.
+
+### Running Tests
+
+```bash
+# Run all tests
+bun test
+
+# Run specific test suites
+bun run test:unit
+bun run test:integration
+bun run test:e2e
+
+# Run tests with coverage
+bun run test:coverage
+
+# Run tests in Docker
+docker-compose exec auth bun test
+```
+
+### Test Structure
+
+```
+tests/
+├── unit/           # Unit tests for isolated components
+│   ├── domain/     # Entity and domain logic tests
+│   ├── application/ # Use case tests
+│   └── infrastructure/ # Service tests (JWT, Password)
+├── integration/    # Integration tests for workflows
+│   └── application/ # Full auth flow tests
+└── e2e/           # End-to-end API tests
+    └── api.test.ts # HTTP endpoint tests
+```
+
+### Manual Testing with cURL
+
+To test the API manually, you can use curl, Postman, or any HTTP client:
 
 ```bash
 # Register a new user
@@ -403,6 +537,9 @@ curl -X GET http://localhost:3000/auth/me \
 - **Password Hashing**: bcrypt
 - **Validation**: Zod
 - **ID Generation**: ULID (ulidx)
+- **API Documentation**: OpenAPI 3.0 / Swagger UI
+- **Containerization**: Docker & Docker Compose
+- **Testing**: Bun Test (unit, integration, e2e)
 
 ## 📄 License
 
